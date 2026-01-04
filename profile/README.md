@@ -10,7 +10,9 @@
 ### The "Tinder" for Brands & Creators ⚡️
 **We don't match numbers. We match *vibes*.**
 
-[🚀 Try the Demo](https://mapfluencer.app) &nbsp;&nbsp; • &nbsp;&nbsp; [📖 Read the Docs](https://github.com/mapfluencer/demo/tree/main/docs) &nbsp;&nbsp; • &nbsp;&nbsp; [✨ Join the Magic](https://github.com/mapfluencer/demo/issues)
+[🚀 **Try the Live Demo**](https://demo-mapfluencer.vercel.app) &nbsp;&nbsp; • &nbsp;&nbsp; [📖 **Read the Docs**](https://github.com/mapfluencer/demo/tree/main/docs) &nbsp;&nbsp; • &nbsp;&nbsp; [✨ **Request Feature**](https://github.com/mapfluencer/demo/issues)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmapfluencer%2Fdemo)
 
 ---
 
@@ -29,6 +31,19 @@ We use **Google Gemini Vision AI** to psychoanalyze Instagram grids, YouTube vid
 
 ### The Solution
 > **MapFluencer:** *"Hey, these vibes clash. Here is a 38% Fit Score and a detailed psychological breakdown why."*
+
+---
+
+## 📦 What's in the Box?
+
+We've packed this with enough AI magic to make your strategy team jealous.
+
+| Feature | Description |
+| :--- | :--- |
+| 📸 **Visual Vibe Check** | Upload a screenshot. Our AI "sees" the aesthetic, color palette, and hidden psychological signals. |
+| 🧠 **Psycho-Profiling** | We extract deep personality traits from raw text and images. No more "I think he's cool". |
+| 📐 **Math > Feelings** | We calculate a weighted Euclidean distance between brand & creator. It's science, sort of. |
+| 🕸 **Spider Charts** | Because every good data analysis needs a cool hexagonal chart. |
 
 ---
 
@@ -88,6 +103,14 @@ We built this beast using the bleeding edge of web tech:
 <div align="center">
   <img src="https://placehold.co/800x400/4f46e5/ffffff?text=Spider+Charts+%26+AI+Analysis+Dashboard&font=montserrat" alt="Dashboard Preview" style="border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
 </div>
+
+---
+
+## 💬 Famous Last Words
+
+> *"I thought my boss would be mad I spent all weekend coding this. Turns out, he just wanted to know if he matches with Elon Musk."* — **Lead Dev**
+
+> *"Finally, a tool that explains why putting a skater punk in a luxury watch ad is a bad idea."* — **A Relieved Marketer**
 
 ---
 
