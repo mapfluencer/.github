@@ -1,0 +1,65 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - 'demo/**'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [ "main", "master" ]
+    paths:
+      - 'demo/**'
+
+jobs:
+  quality-check:
+    name: Type Check, Test & Build
+    runs-on: ubuntu-latest
+    
+    # Tüm komutların demo klasöründe çalışmasını sağlar
+    defaults:
+      run:
+        working-directory: ./demo
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' # svelte.config.js'de nodejs22.x belirtilmiş
+          cache: 'npm'
+          cache-dependency-path: './demo/package-lock.json'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # Prisma Client oluşturulmazsa TS derlemesi hata verir
+      - name: Generate Prisma Client
+        run: npx prisma generate
+        env:
+          # Prisma generate DB bağlantısı gerektirmez ama env var bekleyebilir
+          DATABASE_URL: "postgresql://dummy:dummy@localhost:5432/dummy"
+
+      - name: SvelteKit Sync & Type Check
+        run: |
+          npx svelte-kit sync
+          npm run check
+        env:
+          # Build sırasında kod DB'ye bağlanmaya çalışırsa diye dummy değer
+          DATABASE_URL: "postgresql://dummy:dummy@localhost:5432/dummy"
+
+      - name: Run Unit Tests
+        run: npm run test
+        env:
+          DATABASE_URL: "postgresql://dummy:dummy@localhost:5432/dummy"
+
+      - name: Build Project
+        run: npm run build
+        env:
+          # Build aşamasında (adapter-vercel) gerçek production build denenir
+          DATABASE_URL: "postgresql://dummy:dummy@localhost:5432/dummy"
+          # Vercel adaptörü build sırasında bazı environment variable'lara ihtiyaç duyabilir
+          # Eğer public env değişkenleriniz varsa buraya eklemek gerekebilir
+          # PUBLIC_API_URL: ${{ secrets.PUBLIC_API_URL }} gibi.
